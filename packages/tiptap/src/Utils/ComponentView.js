@@ -108,13 +108,23 @@ export default class ComponentView {
 
   // disable (almost) all prosemirror event listener for node views
   stopEvent(event) {
-    const isPaste = event.type === 'paste'
-    const draggable = !!this.extension.schema.draggable
-
-    if (draggable || isPaste) {
+    // Let all go through until the vm is selected.
+    if (!this.vm.selected) {
       return false
     }
-
+    
+    const isPaste = event.type === 'paste'
+    const draggable = !!this.extension.schema.draggable
+    // If this is draggable and that is what we are doing, well let it go through.
+    if (draggable && (event instanceof DragEvent)) {
+      return false
+    }
+    
+    if (isPaste) {
+      return false
+    }
+    // Pretty much we should be done. All other events are handled through
+    // the attribute and node update methods.
     return true
   }
 

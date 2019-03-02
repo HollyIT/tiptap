@@ -39,6 +39,9 @@
     <router-link class="subnavigation__link" to="/read-only">
       Read-Only
     </router-link>
+    <router-link class="subnavigation__link" to="/captions">
+      Captions
+    </router-link>
     <router-link class="subnavigation__link" to="/embeds">
       Embeds
     </router-link>

@@ -111,6 +111,13 @@ const routes = [
     },
   },
   {
+    path: '/captions',
+    component: () => import('Components/Routes/Captions'),
+    meta: {
+      githubUrl: 'https://github.com/hollyit/tiptap/tree/master/examples/Components/Routes/Captions',
+    },
+  },
+  {
     path: '/placeholder',
     component: () => import('Components/Routes/Placeholder'),
     meta: {
